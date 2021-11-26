@@ -1,7 +1,15 @@
-mainFile = jumps.cpp
+mainFile = main.cpp
+starLib = Star.cpp
+systemLib = System.cpp
 
-jumps.o: $(mainFile)
+Star.o: $(starLib)
+	g++ -c $(starLib)
+
+System.o: $(systemLib)
+	g++ -c $(systemLib)
+
+main.o: $(mainFile)
 	g++ -c $(mainFile)
 
-build: jumps.o
-	g++ jumps.o -lsfml-graphics -lsfml-window -lsfml-system -o jumps
+build: main.o System.o Star.o
+	g++ Star.o System.o main.o -lsfml-graphics -lsfml-window -lsfml-system -o app
