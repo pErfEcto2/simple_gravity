@@ -9,8 +9,8 @@ int main() {
     sf::Event event;
 
     std::srand(time(0));
-
-    System sys(40);
+    int n = 10;
+    System sys(n);
     std::vector<System> systems;
     systems.push_back(sys);
 
@@ -23,7 +23,7 @@ int main() {
 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
                 systems.pop_back();
-                System sys(40);
+                System sys(n);
                 systems.push_back(sys);
             }
 

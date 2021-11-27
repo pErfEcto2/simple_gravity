@@ -1,14 +1,12 @@
 #pragma once
-#include "SFML/Graphics.hpp"
-#include "vector"
 #include "Star.h"
-#include "random"
 
 class System {
 private:
-    std::vector<Star> stars;   
+    std::vector<Star> stars;
+    int num;
 public:
-    System(int num);
+    System(int n);
     void draw(sf::RenderTarget &w);
     void update();
 };

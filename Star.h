@@ -1,21 +1,34 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "math.h"
+#include "random"
+#include "vector"
+#include "SFML/Graphics.hpp"
+#include "iostream"
+
+#define MAXSPEED 100
+#define DECCELERATION 1.1
+#define ADD 100
+#define MAXMASS 100
 
 class Star {
 private:
-    int mass;
+    float mass;
     sf::CircleShape sprite;
-    sf::Vector2i pos;
-    sf::Vector2i vel;
+    sf::Vector2f pos;
+    sf::Vector2f vel;
     sf::VideoMode screenSize;
-    int size;
+    float size;
 public:
-    Star(int m);
-    int getMass();
-    sf::Vector2i getPos();
-    void setPos(sf::Vector2i p);
-    void incMass(int m);
-    int getRadius();
+    Star(float m);
+    float getMass();
+    sf::Vector2f getPos();
+    void setPos(sf::Vector2f p);
+    void incMass(float m);
+    float getRadius();
     void update();
+    sf::Vector2f getVel();
+    void incVel(sf::Vector2f v);
+    void setColor(sf::Color c);
     void draw(sf::RenderTarget &w);
 };
