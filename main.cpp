@@ -9,8 +9,12 @@ int main() {
     sf::Event event;
 
     std::srand(time(0));
-    int n = 10;
+    int n = 3;
+
+
     System sys(n);
+
+
     std::vector<System> systems;
     systems.push_back(sys);
 

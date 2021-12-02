@@ -16,6 +16,7 @@ private:
     float mass;
     sf::CircleShape sprite;
     sf::Vector2f pos;
+    sf::Vector2f lastPos;
     sf::Vector2f vel;
     sf::VideoMode screenSize;
     float size;
@@ -30,5 +31,7 @@ public:
     sf::Vector2f getVel();
     void incVel(sf::Vector2f v);
     void setColor(sf::Color c);
+    void setLastPos(sf::Vector2f lastPos);
+    sf::Vector2f getLastPos();
     void draw(sf::RenderTarget &w);
 };

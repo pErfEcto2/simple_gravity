@@ -4,7 +4,9 @@ Star::Star(float m) {
     mass = m;
     size = mass / 4;
     sprite = sf::CircleShape(size);
-    sprite.setFillColor(sf::Color(std::fmod(mass, MAXMASS), std::fmod(mass * 2, MAXMASS), std::fmod(mass / 2, MAXMASS)));
+    sprite.setFillColor(sf::Color(std::fmod(mass,     MAXMASS),
+                                  std::fmod(mass / 2, MAXMASS),
+                                  std::fmod(mass * 2, MAXMASS)));
     sprite.setOrigin(sf::Vector2f(size, size));
     vel = sf::Vector2f(10 - rand() % 21, 10 - rand() % 21);
     screenSize = sf::VideoMode::getDesktopMode();
@@ -20,7 +22,7 @@ sf::Vector2f Star::getPos() {
 
 void Star::setPos(sf::Vector2f p) {
     pos = p;
-    sprite.setPosition(sf::Vector2f(pos));
+    sprite.setPosition(pos);
 };
 
 void Star::incMass(float m) {
@@ -65,6 +67,14 @@ void Star::incVel(sf::Vector2f v) {
 
 void Star::setColor(sf::Color c) {
     sprite.setFillColor(c);
+};
+
+void Star::setLastPos(sf::Vector2f lP) {
+    lastPos = lP;
+};
+
+sf::Vector2f Star::getLastPos() {
+    return lastPos;
 };
 
 void Star::draw(sf::RenderTarget &w) {
