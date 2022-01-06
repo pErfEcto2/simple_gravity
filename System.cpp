@@ -27,6 +27,10 @@ System::System(int n) {
     }
 };
 
+float clamp(float x, float minn, float maxx) {
+    return std::max(std::min(x, maxx), minn);
+};
+
 void System::update() {
     std::vector<sf::Vector2f> additions = {};
     for (int i = 0; i < stars.size(); i++) {
@@ -37,6 +41,7 @@ void System::update() {
                 sf::Vector2f posI = stars[i].getPos();
                 sf::Vector2f posJ = stars[j].getPos();
                 float dist = std::sqrt(std::pow(posJ.x - posI.x, 2) + std::pow(posJ.y - posI.y, 2));
+                dist = clamp(dist, 50, 10000);
                 float acceler = std::fmod(50 * stars[j].getMass() / std::pow(dist, 2), MAXSPEED);
                 float k = acceler / dist;
                 float dX = stars[j].getPos().x - stars[i].getPos().x;
